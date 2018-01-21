@@ -27,29 +27,19 @@ void timer1()
 {
   kotelS.requestTemperatures();
   float k = kotelS.getTempCByIndex(0);
-Blynk.virtualWrite(V0, k);
-
-}
-
-void timer2()
-{
   trapezariaS.requestTemperatures();
   float t = trapezariaS.getTempCByIndex(0);
-Blynk.virtualWrite(V1, t);
-}
-
-void timer3()
-{
   tavanS.requestTemperatures();
   float tv = tavanS.getTempCByIndex(0);
-Blynk.virtualWrite(V2, tv);
-}
-
-void timer4()
-{
   daniS.requestTemperatures();
   float d = daniS.getTempCByIndex(0);
-Blynk.virtualWrite(V3, d);
+  if (k > -50 || t > -50 || tv > -50 || d > -50) 
+  {
+  Blynk.virtualWrite(V0, k);
+  Blynk.virtualWrite(V1, t);
+  Blynk.virtualWrite(V2, tv);
+  Blynk.virtualWrite(V3, d);
+  }
 }
 
 void setup()
@@ -62,9 +52,6 @@ void setup()
   Blynk.begin(auth);
   
   timer.setInterval(500L, timer1);
-  timer.setInterval(1000L, timer2);
-  timer.setInterval(1500L, timer3);
-  timer.setInterval(2000L, timer4);
 }
 
 void loop()
