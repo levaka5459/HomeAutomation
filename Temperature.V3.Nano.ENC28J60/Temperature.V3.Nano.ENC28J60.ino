@@ -4,10 +4,10 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-#define tempKotel 2
-#define tempTrapezaria 3
-#define tempTavan 4
-#define tempDani 5
+#define tempKotel 3
+#define tempTrapezaria 4
+#define tempTavan 5
+#define tempDani 6
 
 OneWire kotel(tempKotel);
 OneWire trapezaria(tempTrapezaria);
